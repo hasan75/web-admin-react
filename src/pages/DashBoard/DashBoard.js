@@ -30,6 +30,20 @@ import AllSimCard from '../../components/AllSimCard/AllSimCard';
 import SimCards from '../../components/SimCards/SimCards';
 import AddSimCard from '../../components/AddSimCard/AddSimCard';
 import Customers from '../../components/Customers/Customers';
+import SimCardOperations from '../../components/SimCardOperations/SimCardOperations';
+import ServiceCarriers from '../../components/ServiceCarriers/ServiceCarriers';
+import PhonePlans from '../../components/PhonePlans/PhonePlans';
+import SimCardReturns from '../../components/SimCardReturns/SimCardReturns';
+import Devices from '../../components/Devices/Devices';
+import AllDevices from '../../components/AllDevices/AllDevices';
+import DeviceReturns from '../../components/DeviceReturns/DeviceReturns';
+import Vendors from '../../components/Vendors/Vendors';
+import SimCardsOrders from '../../components/SimCardsOrders/SimCardsOrders';
+import DeviceOrders from '../../components/DeviceOrders/DeviceOrders';
+import Operations from '../../components/Operations/Operations';
+import Applications from '../../components/Applications/Applications';
+import DistributionsAgents from '../../components/DistributionsAgents/DistributionsAgents';
+import Reports from '../../components/Reports/Reports';
 
 const drawerWidth = 250;
 
@@ -316,48 +330,50 @@ const DashBoard = (props) => {
             <AddSimCard></AddSimCard>
           </Route>
           <Route path={`${path}/simCardOperations`}>
-            {/* <SimCardOperations></SimCardOperations> */}
+            <SimCardOperations></SimCardOperations>
           </Route>
           <Route path={`${path}/serviceCarriers`}>
-            <AllSimCard></AllSimCard>
+            <ServiceCarriers></ServiceCarriers>
           </Route>
           <Route path={`${path}/phonePlans`}>
-            <AllSimCard></AllSimCard>
+            <PhonePlans></PhonePlans>
           </Route>
           <Route path={`${path}/simCardReturns`}>
-            <AllSimCard></AllSimCard>
+            <SimCardReturns></SimCardReturns>
           </Route>
           <Route path={`${path}/devices`}>
-            <AllSimCard></AllSimCard>
+            <Devices></Devices>
           </Route>
           <Route path={`${path}/allDevices`}>
-            <AllSimCard></AllSimCard>
+            <AllDevices></AllDevices>
           </Route>
           <Route path={`${path}/deviceReturns`}>
-            <AllSimCard></AllSimCard>
+            <DeviceReturns></DeviceReturns>
           </Route>
           <Route path={`${path}/vendors`}>
-            <AllSimCard></AllSimCard>
+            <Vendors></Vendors>
           </Route>
           <Route path={`${path}/simCardsOrders`}>
-            <AllSimCard></AllSimCard>
+            <SimCardsOrders></SimCardsOrders>
           </Route>
           <Route path={`${path}/deviceOrders`}>
-            <AllSimCard></AllSimCard>
+            <DeviceOrders></DeviceOrders>
           </Route>
           <Route path={`${path}/operations`}>
-            <AllSimCard></AllSimCard>
+            <Operations></Operations>
           </Route>
           <Route path={`${path}/customers`}>
-            <AllSimCard></AllSimCard>
+            <Customers></Customers>
           </Route>
           <Route path={`${path}/applications`}>
-            <AllSimCard></AllSimCard>
+            <Applications></Applications>
           </Route>
           <Route path={`${path}/distributorsagents`}>
-            {/* <DistributionsAgents></DistributionsAgents> */}
+            <DistributionsAgents></DistributionsAgents>
           </Route>
-          <Route path={`${path}/reports`}>{/* <Reports></Reports> */}</Route>
+          <Route path={`${path}/reports`}>
+            <Reports></Reports>
+          </Route>
         </Switch>
       </Box>
     </Box>
