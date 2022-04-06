@@ -45,7 +45,7 @@ import Applications from '../../components/Applications/Applications';
 import DistributionsAgents from '../../components/DistributionsAgents/DistributionsAgents';
 import Reports from '../../components/Reports/Reports';
 
-const drawerWidth = 250;
+const drawerWidth = 215;
 
 const DashBoard = (props) => {
   let { path, url } = useRouteMatch();
@@ -247,7 +247,7 @@ const DashBoard = (props) => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <AppBar
         position='fixed'
         sx={{
@@ -255,7 +255,7 @@ const DashBoard = (props) => {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{ bgcolor: 'gray' }}>
           <IconButton
             color='inherit'
             aria-label='open drawer'
