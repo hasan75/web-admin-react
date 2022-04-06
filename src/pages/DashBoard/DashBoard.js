@@ -16,7 +16,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import companyImg from '../../assets/images/logo.png';
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,6 +28,8 @@ import { Button, Menu, MenuItem } from '@mui/material';
 import DashBoardHome from '../../components/DashBoardHome/DashBoardHome';
 import AllSimCard from '../../components/AllSimCard/AllSimCard';
 import SimCards from '../../components/SimCards/SimCards';
+import AddSimCard from '../../components/AddSimCard/AddSimCard';
+import Customers from '../../components/Customers/Customers';
 
 const drawerWidth = 250;
 
@@ -184,7 +185,7 @@ const DashBoard = (props) => {
           button
           color='success'
           component={Link}
-          to={`${url}/Operations`}
+          to={`${url}/operations`}
         >
           <ListItemText>Operations</ListItemText>
         </ListItem>
@@ -214,7 +215,7 @@ const DashBoard = (props) => {
           button
           color='success'
           component={Link}
-          to={`${url}/distributors&agents`}
+          to={`${url}/distributorsagents`}
         >
           <ListItemText>Distributors & Agents</ListItemText>
         </ListItem>
@@ -305,57 +306,58 @@ const DashBoard = (props) => {
           <Route exact path={path}>
             <SimCards></SimCards>
           </Route>
-          <Route path={`${path}/allSimCard`}>
-            <AllSimCard></AllSimCard>
+          <Route exact path={`${path}/simCards`}>
+            <SimCards></SimCards>
           </Route>
           <Route path={`${path}/allSimCard`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/addSimCards`}>
+            <AddSimCard></AddSimCard>
+          </Route>
+          <Route path={`${path}/simCardOperations`}>
+            {/* <SimCardOperations></SimCardOperations> */}
+          </Route>
+          <Route path={`${path}/serviceCarriers`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/phonePlans`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/simCardReturns`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/devices`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/allDevices`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/deviceReturns`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/vendors`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/simCardsOrders`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/deviceOrders`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/operations`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/customers`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route path={`${path}/applications`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard`}>
-            <AllSimCard></AllSimCard>
+          <Route path={`${path}/distributorsagents`}>
+            {/* <DistributionsAgents></DistributionsAgents> */}
           </Route>
-          <Route path={`${path}/allSimCard`}>
-            <AllSimCard></AllSimCard>
-          </Route>
-          <Route path={`${path}/allSimCard`}>
-            <AllSimCard></AllSimCard>
-          </Route>
+          <Route path={`${path}/reports`}>{/* <Reports></Reports> */}</Route>
         </Switch>
       </Box>
     </Box>
