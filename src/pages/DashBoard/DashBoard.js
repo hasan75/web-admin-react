@@ -28,6 +28,7 @@ import {
 import { Button, Menu, MenuItem } from '@mui/material';
 import DashBoardHome from '../../components/DashBoardHome/DashBoardHome';
 import AllSimCard from '../../components/AllSimCard/AllSimCard';
+import SimCards from '../../components/SimCards/SimCards';
 
 const drawerWidth = 250;
 
@@ -157,19 +158,14 @@ const DashBoard = (props) => {
       </List>
       <Divider />
       <List>
-        <ListItem
-          button
-          color='success'
-          component={Link}
-          to={`${url}/simCards`}
-        >
+        <ListItem button color='success' component={Link} to={`${url}/vendors`}>
           <ListItemText>Vendors</ListItemText>
         </ListItem>
         <ListItem
           button
           sx={{ ml: 2, py: 0 }}
           component={Link}
-          to={`${url}/allSimCard`}
+          to={`${url}/simCardsOrders`}
         >
           <ListItemText>Sim Cards Orders</ListItemText>
         </ListItem>
@@ -177,7 +173,7 @@ const DashBoard = (props) => {
           button
           sx={{ ml: 2, py: 0 }}
           component={Link}
-          to={`${url}/addSimCards`}
+          to={`${url}/deviceOrders`}
         >
           <ListItemText>Device Orders</ListItemText>
         </ListItem>
@@ -188,7 +184,7 @@ const DashBoard = (props) => {
           button
           color='success'
           component={Link}
-          to={`${url}/simCards`}
+          to={`${url}/Operations`}
         >
           <ListItemText>Operations</ListItemText>
         </ListItem>
@@ -198,7 +194,7 @@ const DashBoard = (props) => {
           button
           color='success'
           component={Link}
-          to={`${url}/simCards`}
+          to={`${url}/customers`}
         >
           <ListItemText>Customers</ListItemText>
         </ListItem>
@@ -208,7 +204,7 @@ const DashBoard = (props) => {
           button
           color='success'
           component={Link}
-          to={`${url}/simCards`}
+          to={`${url}/applications`}
         >
           <ListItemText>Applications</ListItemText>
         </ListItem>
@@ -218,18 +214,13 @@ const DashBoard = (props) => {
           button
           color='success'
           component={Link}
-          to={`${url}/simCards`}
+          to={`${url}/distributors&agents`}
         >
           <ListItemText>Distributors & Agents</ListItemText>
         </ListItem>
       </List>
       <List>
-        <ListItem
-          button
-          color='success'
-          component={Link}
-          to={`${url}/simCards`}
-        >
+        <ListItem button color='success' component={Link} to={`${url}/reports`}>
           <ListItemText>Reports</ListItemText>
         </ListItem>
       </List>
@@ -312,7 +303,55 @@ const DashBoard = (props) => {
         <Toolbar />
         <Switch>
           <Route exact path={path}>
-            <DashBoardHome></DashBoardHome>
+            <SimCards></SimCards>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard`}>
+            <AllSimCard></AllSimCard>
           </Route>
           <Route path={`${path}/allSimCard`}>
             <AllSimCard></AllSimCard>
