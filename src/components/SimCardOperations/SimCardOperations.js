@@ -388,7 +388,7 @@ const SimCardOperations = () => {
                     padding: '2px 5px',
                   }}
                 >
-                  Assign Batch Numbers
+                  Assign Batch Number
                 </button>
               ),
               tooltip: 'Click to assign batch number',
