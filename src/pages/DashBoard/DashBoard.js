@@ -321,10 +321,10 @@ const DashBoard = (props) => {
           <Route exact path={`${path}/simCards`}>
             <SimCards></SimCards>
           </Route>
-          <Route path={`${path}/allSimCard`}>
+          <Route exact path={`${path}/allSimCard`}>
             <AllSimCard></AllSimCard>
           </Route>
-          <Route path={`${path}/allSimCard/:ssId`}>
+          <Route path={`${path}/simCardDetails/:ssId`}>
             <SimCardDetails></SimCardDetails>
           </Route>
           <Route path={`${path}/addSimCards`}>

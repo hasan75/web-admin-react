@@ -102,7 +102,9 @@ const AllSimCard = () => {
               type: 'numeric',
               sorting: false,
               render: (row) => (
-                <Link to={`/product/${row.ssid}`}>{row.ssid}</Link>
+                <Link to={`/dashboard/simCardDetails/${row.ssid}`}>
+                  {row.ssid}
+                </Link>
               ),
             },
             { title: 'PUK 1', field: 'puk1', sorting: false },
