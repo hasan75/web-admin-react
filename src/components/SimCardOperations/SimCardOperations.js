@@ -3,9 +3,9 @@ import simCardOperationStyles from './SimCardOperation.module.css';
 
 const SimCardOperations = () => {
   return (
-    <div>
-      <h1>Sim C O</h1>
-      <div className={`${simCardOperationStyles.searchContainer}`}>
+    <section className={simCardOperationStyles.simCardOperations}>
+      {/* basic search container  */}
+      <div className={`${simCardOperationStyles.searchContainer} my-3`}>
         <span>Search By:</span>
         {/* form input  */}
         <div class='form-row row d-flex flex-row justify-content-center align-items-center'>
@@ -82,14 +82,36 @@ const SimCardOperations = () => {
           </div>
         </div>
       </div>
-      <div className={`${simCardOperationStyles.singleInput}`}>
+
+      {/* advanced search container  */}
+      <div className={`${simCardOperationStyles.singleInput} my-2`}>
         <input
           type='text'
           className='form-control'
           placeholder='Advance Search'
         />
       </div>
-    </div>
+      <div className={`${simCardOperationStyles.serviceCarrier1} my-2`}>
+        <span className='mt-2 ms-1'>Service Carrier #1 321Communications</span>
+        <div className='row d-flex align-items-center'>
+          <div className='col-md-6 d-flex align-items-center'>
+            <select
+              className='form-select me-2'
+              name='select Plan'
+              id='select Plan'
+            >
+              <option value='select Plan'>Select Plan</option>
+              <option value='Plan1'>Plan1</option>
+              <option value='Plan2'>Plan2</option>
+            </select>
+            <button className='btn btn-secondary me-2'>Activate</button>
+            <button className='btn btn-secondary me-2'>Hotline</button>
+            <button className='btn btn-secondary me-2'>UnHotline</button>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </section>
   );
 };
 
