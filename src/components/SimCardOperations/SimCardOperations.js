@@ -104,13 +104,27 @@ const SimCardOperations = () => {
               <option value='Plan1'>Plan1</option>
               <option value='Plan2'>Plan2</option>
             </select>
-            <button className='btn btn-secondary me-2'>Activate</button>
-            <button className='btn btn-secondary me-2'>Hotline</button>
-            <button className='btn btn-secondary me-2'>UnHotline</button>
+            <button className='btn btn-outline-secondary me-2'>Activate</button>
+            <button className='btn btn-outline-secondary me-2'>Hotline</button>
+            <button className='btn btn-outline-secondary me-2'>
+              UnHotline
+            </button>
+          </div>
+          <div className='col-md-6 d-flex align-items-center'>
+            <select
+              className='form-select me-2'
+              name='select Plan'
+              id='select Plan'
+            >
+              <option value='select Plan'>Select Plan</option>
+              <option value='Plan1'>Plan1</option>
+              <option value='Plan2'>Plan2</option>
+            </select>
+            <button className='btn btn-outline-secondary me-2'>Activate</button>
+            <button className='btn btn-outline-secondary me-2'>Hotline</button>
           </div>
         </div>
       </div>
-      <div></div>
     </section>
   );
 };
