@@ -91,12 +91,12 @@ const SimCardOperations = () => {
           placeholder='Advance Search'
         />
       </div>
-      <div className={`${simCardOperationStyles.serviceCarrier1} my-2`}>
+      <div className={`${simCardOperationStyles.serviceCarrier1} my-3`}>
         <span className='mt-2 ms-1'>Service Carrier #1 321Communications</span>
         <div className='row d-flex align-items-center'>
           <div className='col-md-6 d-flex align-items-center'>
             <select
-              className='form-select me-2'
+              className={`${simCardOperationStyles.theFormSelect} form-select me-2`}
               name='select Plan'
               id='select Plan'
             >
@@ -112,16 +112,18 @@ const SimCardOperations = () => {
           </div>
           <div className='col-md-6 d-flex align-items-center'>
             <select
-              className='form-select me-2'
-              name='select Plan'
-              id='select Plan'
+              className={`${simCardOperationStyles.theFormSelect} form-select me-2`}
+              name='select Plan2'
+              id='select Plan2'
             >
               <option value='select Plan'>Select Plan</option>
               <option value='Plan1'>Plan1</option>
               <option value='Plan2'>Plan2</option>
             </select>
-            <button className='btn btn-outline-secondary me-2'>Activate</button>
-            <button className='btn btn-outline-secondary me-2'>Hotline</button>
+            <button className='btn btn-outline-secondary me-2'>
+              Change Plan
+            </button>
+            <button className='btn btn-outline-secondary me-2'>SWAP MDN</button>
           </div>
         </div>
       </div>
