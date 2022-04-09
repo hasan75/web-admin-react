@@ -44,6 +44,7 @@ import Operations from '../../components/Operations/Operations';
 import Applications from '../../components/Applications/Applications';
 import DistributionsAgents from '../../components/DistributionsAgents/DistributionsAgents';
 import Reports from '../../components/Reports/Reports';
+import SimCardDetails from '../../components/SimCardDetails/SimCardDetails';
 
 const drawerWidth = 215;
 
@@ -61,10 +62,7 @@ const DashBoard = (props) => {
       <Toolbar>
         <Box
           sx={{
-            width: 200,
-            p: 1,
-            ms: 1,
-            textAlign: 'center',
+            width: 180,
             fontSize: '0.875rem',
           }}
           component='img'
@@ -325,6 +323,9 @@ const DashBoard = (props) => {
           </Route>
           <Route path={`${path}/allSimCard`}>
             <AllSimCard></AllSimCard>
+          </Route>
+          <Route path={`${path}/allSimCard/:ssId`}>
+            <SimCardDetails></SimCardDetails>
           </Route>
           <Route path={`${path}/addSimCards`}>
             <AddSimCard></AddSimCard>
