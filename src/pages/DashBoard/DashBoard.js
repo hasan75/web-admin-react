@@ -56,40 +56,40 @@ const DashBoard = (props) => {
   };
 
   const [open, setOpen] = React.useState(true);
+  const [deviceOpen, setDeviceOpen] = React.useState(true);
+  const [vendorOpen, setVendorOpen] = React.useState(true);
 
   const handleSimClick = () => {
     setOpen(!open);
   };
   const handleVendorClick = () => {
-    setOpen(!open);
+    setVendorOpen(!vendorOpen);
   };
   const handleDeviceClick = () => {
-    setOpen(!open);
+    setDeviceOpen(!deviceOpen);
   };
 
   const drawer = (
     <div>
       <Toolbar>
-        <Image
-          sx={{
-            width: 180,
-            fontSize: '0.875rem',
-          }}
-          component='img'
-          alt='img for logo'
-          src={companyImg}
-        ></Image>
+        <Box component={Link} to={`${url}/simCards`}>
+          <Image
+            sx={{
+              width: 180,
+              fontSize: '0.875rem',
+            }}
+            component='img'
+            alt='img for logo'
+            src={companyImg}
+          ></Image>
+        </Box>
       </Toolbar>
       <Divider />
       <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component='nav'
       >
-        <ListItemButton
-          component={Link}
-          to={`${url}/simCards`}
-          onClick={handleSimClick}
-        >
+        <ListItemButton onClick={handleSimClick}>
           <ListItemText primary='Sim Cards' />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
@@ -140,15 +140,11 @@ const DashBoard = (props) => {
           </List>
         </Collapse>
         <Divider></Divider>
-        <ListItemButton
-          component={Link}
-          to={`${url}/devices`}
-          onClick={handleDeviceClick}
-        >
+        <ListItemButton onClick={handleDeviceClick}>
           <ListItemText primary='Device' />
-          {open ? <ExpandLess /> : <ExpandMore />}
+          {deviceOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
-        <Collapse in={open} timeout='auto' unmountOnExit>
+        <Collapse in={deviceOpen} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
             <ListItemButton
               component={Link}
@@ -167,15 +163,11 @@ const DashBoard = (props) => {
           </List>
         </Collapse>
         <Divider></Divider>
-        <ListItemButton
-          component={Link}
-          to={`${url}/vendors`}
-          onClick={handleVendorClick}
-        >
+        <ListItemButton onClick={handleVendorClick}>
           <ListItemText primary='Vendors' />
-          {open ? <ExpandLess /> : <ExpandMore />}
+          {vendorOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
-        <Collapse in={open} timeout='auto' unmountOnExit>
+        <Collapse in={vendorOpen} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
             <ListItemButton
               component={Link}
