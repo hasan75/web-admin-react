@@ -1,23 +1,29 @@
 import { Button } from '@mui/material';
+import Box from '@mui/material/Box';
 import React from 'react';
 
 const serviceCarriers = () => {
   return (
-    <section className='serviceCarriers'>
+    <Box
+      sx={{
+        p: 2,
+        minWidth: 300,
+      }}
+    >
       <Button
-        variant='outlined'
-        sx={{ float: 'right', color: 'gray', border: '1px solid gray' }}
+        sx={{
+          my: 'auto',
+          border: '1px solid gray',
+          variant: 'outlined',
+          color: 'black',
+        }}
       >
         Add A New Service Carrier
       </Button>
-      <div
-        sx={{
-          margin: '5px 10px',
-          border: '1px solid gray',
-          borderRadius: '2px',
-        }}
-      ></div>
-    </section>
+      <Box
+        sx={{ border: '1px solid gray', margin: '4px', borderRadius: '2px' }}
+      ></Box>
+    </Box>
   );
 };
 

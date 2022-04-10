@@ -45,8 +45,9 @@ import Applications from '../../components/Applications/Applications';
 import DistributionsAgents from '../../components/DistributionsAgents/DistributionsAgents';
 import Reports from '../../components/Reports/Reports';
 import SimCardDetails from '../../components/SimCardDetails/SimCardDetails';
+import { Image } from 'mui-image';
 
-const drawerWidth = 215;
+const drawerWidth = 220;
 
 const DashBoard = (props) => {
   let { path, url } = useRouteMatch();
@@ -60,7 +61,7 @@ const DashBoard = (props) => {
   const drawer = (
     <div>
       <Toolbar>
-        <Box
+        <Image
           sx={{
             width: 180,
             fontSize: '0.875rem',
@@ -68,7 +69,7 @@ const DashBoard = (props) => {
           component='img'
           alt='img for logo'
           src={companyImg}
-        ></Box>
+        ></Image>
       </Toolbar>
       <Divider />
       {/* <Link to={`${url}`}>
@@ -99,6 +100,7 @@ const DashBoard = (props) => {
           <ListItemText>Sim Cards</ListItemText>
         </ListItem>
         <ListItem
+          max-width='100vw'
           button
           sx={{ ml: 2, py: 0 }}
           component={Link}
