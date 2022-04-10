@@ -46,10 +46,58 @@ import DistributionsAgents from '../../components/DistributionsAgents/Distributi
 import Reports from '../../components/Reports/Reports';
 import SimCardDetails from '../../components/SimCardDetails/SimCardDetails';
 import { Image } from 'mui-image';
+import { styled } from '@mui/material/styles';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
 
 const drawerWidth = 220;
 
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
+  },
+  '&:before': {
+    display: 'none',
+  },
+  backgroundColor: `${theme.palette.background.default}`,
+}));
+
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? 'rgba(255, 255, 255, .05)'
+      : 'rgba(0, 0, 0, .03)',
+  flexDirection: 'row-reverse',
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+  },
+}));
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+}));
+
 const DashBoard = (props) => {
+  const [expanded, setExpanded] = React.useState('panel1');
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
   let { path, url } = useRouteMatch();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -72,6 +120,126 @@ const DashBoard = (props) => {
         ></Image>
       </Toolbar>
       <Divider />
+      <Accordion
+        sx={{ backgroundColor: 'white' }}
+        expanded={expanded === 'panel1'}
+        onChange={handleChange('panel1')}
+      >
+        <AccordionSummary
+          sx={{ backgroundColor: 'white' }}
+          aria-controls='panel1d-content'
+          id='panel1d-header'
+        >
+          <Typography
+            sx={{
+              textDecoration: 'none',
+              color: 'black',
+            }}
+            component={Link}
+            to={`${url}/simCards`}
+          >
+            Sim Cards
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MenuItem component={Link} to={`${url}/allSimCard`}>
+            All Sim Cards
+          </MenuItem>
+          <MenuItem component={Link} to={`${url}/addSimCards`}>
+            Add Sim Cards
+          </MenuItem>
+          <MenuItem component={Link} to={`${url}/simCardOperations`}>
+            Sim Card Operations
+          </MenuItem>
+          <MenuItem component={Link} to={`${url}/serviceCarriers`}>
+            Service Carriers
+          </MenuItem>
+          <MenuItem component={Link} to={`${url}/phonePlans`}>
+            Phone Plans
+          </MenuItem>
+          <MenuItem component={Link} to={`${url}/simCardReturns`}>
+            Sim Card Returns
+          </MenuItem>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded === 'panel2'}
+        onChange={handleChange('panel2')}
+      >
+        <AccordionSummary
+          sx={{ backgroundColor: 'white' }}
+          aria-controls='panel2d-content'
+          id='panel2d-header'
+        >
+          <Typography
+            sx={{
+              textDecoration: 'none',
+              color: 'black',
+            }}
+            component={Link}
+            to={`${url}/devices`}
+          >
+            Devices
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MenuItem component={Link} to={`${url}/allDevices`}>
+            All Devices
+          </MenuItem>
+          <MenuItem component={Link} to={`${url}/deviceReturns`}>
+            Device Returns
+          </MenuItem>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded === 'panel3'}
+        onChange={handleChange('panel3')}
+      >
+        <AccordionSummary
+          sx={{ backgroundColor: 'white' }}
+          aria-controls='panel3d-content'
+          id='panel3d-header'
+        >
+          <Typography
+            sx={{
+              textDecoration: 'none',
+              color: 'black',
+            }}
+            component={Link}
+            to={`${url}/vendors`}
+          >
+            Vendors
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <MenuItem component={Link} to={`${url}/simCardsOrders`}>
+            Sim Cards Orders
+          </MenuItem>
+          <MenuItem component={Link} to={`${url}/deviceOrders`}>
+            Device Orders
+          </MenuItem>
+        </AccordionDetails>
+      </Accordion>
+      <Divider></Divider>
+      <MenuItem component={Link} to={`${url}/operations`}>
+        Operations
+      </MenuItem>
+      <Divider></Divider>
+      <MenuItem component={Link} to={`${url}/customers`}>
+        Customers
+      </MenuItem>
+      <Divider></Divider>
+      <MenuItem component={Link} to={`${url}/applications`}>
+        Applications
+      </MenuItem>
+      <Divider></Divider>
+      <MenuItem component={Link} to={`${url}/distributorsagents`}>
+        DIstributors & Agents
+      </MenuItem>
+      <Divider></Divider>
+      <MenuItem component={Link} to={`${url}/reports`}>
+        Reports
+      </MenuItem>
       {/* <Link to={`${url}`}>
         {' '}
         <Button variant='text' color='inherit'>
@@ -90,155 +258,8 @@ const DashBoard = (props) => {
           All Sim Card
         </Button>
       </Link> */}
-      <List>
-        <ListItem
-          button
-          color='success'
-          component={Link}
-          to={`${url}/simCards`}
-        >
-          <ListItemText>Sim Cards</ListItemText>
-        </ListItem>
-        <ListItem
-          max-width='100vw'
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/allSimCard`}
-        >
-          <ListItemText>All Sim Card</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/addSimCards`}
-        >
-          <ListItemText>Add Sim Cards</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/simCardOperations`}
-        >
-          <ListItemText>Sim Card Operations</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/serviceCarriers`}
-        >
-          <ListItemText>Service Carriers</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/phonePlans`}
-        >
-          <ListItemText>Phone Plans</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/simCardReturns`}
-        >
-          <ListItemText>Sim Card Returns</ListItemText>
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        <ListItem button color='success' component={Link} to={`${url}/devices`}>
-          <ListItemText>Devices</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/allDevices`}
-        >
-          <ListItemText>All Devices</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/deviceReturns`}
-        >
-          <ListItemText>Device Returns</ListItemText>
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        <ListItem button color='success' component={Link} to={`${url}/vendors`}>
-          <ListItemText>Vendors</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/simCardsOrders`}
-        >
-          <ListItemText>Sim Cards Orders</ListItemText>
-        </ListItem>
-        <ListItem
-          button
-          sx={{ ml: 2, py: 0 }}
-          component={Link}
-          to={`${url}/deviceOrders`}
-        >
-          <ListItemText>Device Orders</ListItemText>
-        </ListItem>
-      </List>
+
       <Divider></Divider>
-      <List>
-        <ListItem
-          button
-          color='success'
-          component={Link}
-          to={`${url}/operations`}
-        >
-          <ListItemText>Operations</ListItemText>
-        </ListItem>
-      </List>
-      <List>
-        <ListItem
-          button
-          color='success'
-          component={Link}
-          to={`${url}/customers`}
-        >
-          <ListItemText>Customers</ListItemText>
-        </ListItem>
-      </List>
-      <List>
-        <ListItem
-          button
-          color='success'
-          component={Link}
-          to={`${url}/applications`}
-        >
-          <ListItemText>Applications</ListItemText>
-        </ListItem>
-      </List>
-      <List>
-        <ListItem
-          button
-          color='success'
-          component={Link}
-          to={`${url}/distributorsagents`}
-        >
-          <ListItemText>Distributors & Agents</ListItemText>
-        </ListItem>
-      </List>
-      <List>
-        <ListItem button color='success' component={Link} to={`${url}/reports`}>
-          <ListItemText>Reports</ListItemText>
-        </ListItem>
-      </List>
     </div>
   );
 
