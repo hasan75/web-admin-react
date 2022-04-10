@@ -8,7 +8,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import companyImg from '../../assets/images/logo.png';
+import { Image } from 'mui-image';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +22,8 @@ import {
   Link,
   useRouteMatch,
 } from 'react-router-dom';
-import { Button, Menu, MenuItem } from '@mui/material';
+import companyImg from '../../assets/images/logo.png';
+// component import
 import AllSimCard from '../../components/AllSimCard/AllSimCard';
 import SimCards from '../../components/SimCards/SimCards';
 import AddSimCard from '../../components/AddSimCard/AddSimCard';
@@ -36,67 +43,10 @@ import Applications from '../../components/Applications/Applications';
 import DistributionsAgents from '../../components/DistributionsAgents/DistributionsAgents';
 import Reports from '../../components/Reports/Reports';
 import SimCardDetails from '../../components/SimCardDetails/SimCardDetails';
-import { Image } from 'mui-image';
-import { styled } from '@mui/material/styles';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const drawerWidth = 220;
 
-const Accordion = styled((props) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  '&:not(:last-child)': {
-    borderBottom: 0,
-  },
-  '&:before': {
-    display: 'none',
-  },
-  backgroundColor: `${theme.palette.background.default}`,
-}));
-
-const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-    {...props}
-  />
-))(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === 'dark'
-      ? 'rgba(255, 255, 255, .05)'
-      : 'rgba(0, 0, 0, .03)',
-  flexDirection: 'row-reverse',
-  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(90deg)',
-  },
-  '& .MuiAccordionSummary-content': {
-    marginLeft: theme.spacing(1),
-  },
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
-  borderTop: '1px solid rgba(0, 0, 0, .125)',
-}));
-
 const DashBoard = (props) => {
-  const [expanded, setExpanded] = React.useState('panel1');
-
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
-
   let { path, url } = useRouteMatch();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -131,133 +81,6 @@ const DashBoard = (props) => {
         ></Image>
       </Toolbar>
       <Divider />
-      <Accordion
-        sx={{ backgroundColor: 'white' }}
-        expanded={expanded === 'panel1'}
-        onChange={handleChange('panel1')}
-      >
-        <AccordionSummary
-          sx={{ backgroundColor: 'white' }}
-          aria-controls='panel1d-content'
-          id='panel1d-header'
-        >
-          <Typography
-            sx={{
-              textDecoration: 'none',
-              color: 'black',
-            }}
-            component={Link}
-            to={`${url}/simCards`}
-          >
-            Sim Cards
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <MenuItem component={Link} to={`${url}/allSimCard`}>
-            All Sim Cards
-          </MenuItem>
-          <MenuItem component={Link} to={`${url}/addSimCards`}>
-            Add Sim Cards
-          </MenuItem>
-          <MenuItem component={Link} to={`${url}/simCardOperations`}>
-            Sim Card Operations
-          </MenuItem>
-          <MenuItem component={Link} to={`${url}/serviceCarriers`}>
-            Service Carriers
-          </MenuItem>
-          <MenuItem component={Link} to={`${url}/phonePlans`}>
-            Phone Plans
-          </MenuItem>
-          <MenuItem component={Link} to={`${url}/simCardReturns`}>
-            Sim Card Returns
-          </MenuItem>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === 'panel2'}
-        onChange={handleChange('panel2')}
-      >
-        <AccordionSummary
-          sx={{
-            backgroundColor: 'white',
-          }}
-          aria-controls='panel2d-content'
-          id='panel2d-header'
-        >
-          <Typography
-            sx={{
-              textDecoration: 'none',
-              color: 'black',
-            }}
-            component={Link}
-            to={`${url}/devices`}
-          >
-            Devices
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <MenuItem component={Link} to={`${url}/allDevices`}>
-            All Devices
-          </MenuItem>
-          <MenuItem component={Link} to={`${url}/deviceReturns`}>
-            Device Returns
-          </MenuItem>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === 'panel3'}
-        onChange={handleChange('panel3')}
-      >
-        <AccordionSummary
-          sx={{ backgroundColor: 'white' }}
-          aria-controls='panel3d-content'
-          id='panel3d-header'
-        >
-          <Typography
-            sx={{
-              textDecoration: 'none',
-              color: 'black',
-            }}
-            component={Link}
-            to={`${url}/vendors`}
-          >
-            Vendors
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <MenuItem component={Link} to={`${url}/simCardsOrders`}>
-            Sim Cards Orders
-          </MenuItem>
-          <MenuItem component={Link} to={`${url}/deviceOrders`}>
-            Device Orders
-          </MenuItem>
-        </AccordionDetails>
-      </Accordion>
-      <Divider></Divider>
-      <MenuItem sx={{ ml: '7px' }} component={Link} to={`${url}/operations`}>
-        Operations
-      </MenuItem>
-      <Divider></Divider>
-      <MenuItem sx={{ ml: '7px' }} component={Link} to={`${url}/customers`}>
-        Customers
-      </MenuItem>
-      <Divider></Divider>
-      <MenuItem sx={{ ml: '7px' }} component={Link} to={`${url}/applications`}>
-        Applications
-      </MenuItem>
-      <Divider></Divider>
-      <MenuItem
-        sx={{ ml: '7px' }}
-        component={Link}
-        to={`${url}/distributorsagents`}
-      >
-        DIstributors & Agents
-      </MenuItem>
-      <Divider></Divider>
-      <MenuItem sx={{ ml: '7px' }} component={Link} to={`${url}/reports`}>
-        Reports
-      </MenuItem>
-      <Divider></Divider>
       <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component='nav'
