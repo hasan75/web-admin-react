@@ -2,16 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -21,11 +14,9 @@ import {
   Switch,
   Route,
   Link,
-  useParams,
   useRouteMatch,
 } from 'react-router-dom';
 import { Button, Menu, MenuItem } from '@mui/material';
-import DashBoardHome from '../../components/DashBoardHome/DashBoardHome';
 import AllSimCard from '../../components/AllSimCard/AllSimCard';
 import SimCards from '../../components/SimCards/SimCards';
 import AddSimCard from '../../components/AddSimCard/AddSimCard';
@@ -167,7 +158,9 @@ const DashBoard = (props) => {
         onChange={handleChange('panel2')}
       >
         <AccordionSummary
-          sx={{ backgroundColor: 'white' }}
+          sx={{
+            backgroundColor: 'white',
+          }}
           aria-controls='panel2d-content'
           id='panel2d-header'
         >
@@ -221,44 +214,29 @@ const DashBoard = (props) => {
         </AccordionDetails>
       </Accordion>
       <Divider></Divider>
-      <MenuItem component={Link} to={`${url}/operations`}>
+      <MenuItem sx={{ ml: '7px' }} component={Link} to={`${url}/operations`}>
         Operations
       </MenuItem>
       <Divider></Divider>
-      <MenuItem component={Link} to={`${url}/customers`}>
+      <MenuItem sx={{ ml: '7px' }} component={Link} to={`${url}/customers`}>
         Customers
       </MenuItem>
       <Divider></Divider>
-      <MenuItem component={Link} to={`${url}/applications`}>
+      <MenuItem sx={{ ml: '7px' }} component={Link} to={`${url}/applications`}>
         Applications
       </MenuItem>
       <Divider></Divider>
-      <MenuItem component={Link} to={`${url}/distributorsagents`}>
+      <MenuItem
+        sx={{ ml: '7px' }}
+        component={Link}
+        to={`${url}/distributorsagents`}
+      >
         DIstributors & Agents
       </MenuItem>
       <Divider></Divider>
-      <MenuItem component={Link} to={`${url}/reports`}>
+      <MenuItem sx={{ ml: '7px' }} component={Link} to={`${url}/reports`}>
         Reports
       </MenuItem>
-      {/* <Link to={`${url}`}>
-        {' '}
-        <Button variant='text' color='inherit'>
-          All Sim Card
-        </Button>
-      </Link>
-      <Link to={`${url}`}>
-        {' '}
-        <Button variant='text' color='inherit'>
-          All Sim Card
-        </Button>
-      </Link>
-      <Link to={`${url}/allSimCard`}>
-        {' '}
-        <Button variant='text' color='inherit'>
-          All Sim Card
-        </Button>
-      </Link> */}
-
       <Divider></Divider>
     </div>
   );
