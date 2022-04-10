@@ -115,6 +115,7 @@ const ServiceCarriers = () => {
             paginationPosition: 'top',
             showTextRowsSelected: false,
             search: false,
+            toolbar: false,
             actionsColumnIndex: -1,
           }}
           actions={[
