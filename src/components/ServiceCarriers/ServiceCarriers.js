@@ -1,11 +1,22 @@
+import { Button } from '@mui/material';
 import React from 'react';
 
 const serviceCarriers = () => {
   return (
-    <section className='serviceCarriers ms-auto'>
-      <button className='btn btn-outline-secondary px-3'>
+    <section className='serviceCarriers'>
+      <Button
+        variant='outlined'
+        sx={{ float: 'right', color: 'gray', border: '1px solid gray' }}
+      >
         Add A New Service Carrier
-      </button>
+      </Button>
+      <div
+        sx={{
+          margin: '5px 10px',
+          border: '1px solid gray',
+          borderRadius: '2px',
+        }}
+      ></div>
     </section>
   );
 };
