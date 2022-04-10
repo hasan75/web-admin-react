@@ -1,8 +1,40 @@
+import React, { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
-import React from 'react';
+import MaterialTable from 'material-table';
 
-const serviceCarriers = () => {
+const ServiceCarriers = () => {
+  //for error handling
+  // const [iserror, setIserror] = useState(false);
+  const [columns, setColumns] = useState([
+    { title: 'Label', field: 'label', sorting: false },
+    {
+      title: 'Name (Company Name)',
+      field: 'name',
+    },
+    { title: 'Created Date', field: 'created_date', type: 'date' },
+    {
+      title: 'Status',
+      field: 'status',
+      lookup: { 1: 'Active', 2: 'Deactive' },
+    },
+  ]);
+  const [data, setData] = useState([
+    {
+      label: 'Label',
+      name: 'PWR',
+      created_date: '2022-01-02',
+      status: 1,
+    },
+    {
+      label: 'Labe2',
+      name: '321 Comm',
+      created_date: '2022-01-02',
+      status: 2,
+    },
+  ]);
+  // const [errorMessages, setErrorMessages] = useState([]);
+
   return (
     <Box
       sx={{
@@ -20,11 +52,103 @@ const serviceCarriers = () => {
       >
         Add A New Service Carrier
       </Button>
-      <Box
-        sx={{ border: '1px solid gray', margin: '4px', borderRadius: '2px' }}
-      ></Box>
+      <Box sx={{ border: '1px solid gray', my: '10px', borderRadius: '2px' }}>
+        <MaterialTable
+          sx={{ margin: '20px' }}
+          title=''
+          columns={columns}
+          data={data}
+          editable={{
+            onRowAdd: (newData) =>
+              new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  setData([...data, newData]);
+
+                  resolve();
+                }, 1000);
+              }),
+            onRowUpdate: (newData, oldData) =>
+              new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  const dataUpdate = [...data];
+                  const index = oldData.tableData.id;
+                  dataUpdate[index] = newData;
+                  setData([...dataUpdate]);
+
+                  resolve();
+                }, 1000);
+              }),
+            onRowDelete: (oldData) =>
+              new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  const dataDelete = [...data];
+                  const index = oldData.tableData.id;
+                  dataDelete.splice(index, 1);
+                  setData([...dataDelete]);
+
+                  resolve();
+                }, 1000);
+              }),
+          }}
+          options={{
+            // selection: true,
+            // exportButton: true,
+            // exportAllData: true,
+            // shorting: true,
+            paging: true,
+            pageSizeOptions: [2, 5, 10, 50],
+            pageSize: 2,
+            paginationType: 'stepped',
+            paginationPosition: 'top',
+            showTextRowsSelected: false,
+            search: false,
+            toolbar: false,
+            actionsColumnIndex: -1,
+          }}
+          actions={[
+            {
+              icon: () => (
+                <button
+                  style={{
+                    fontSize: '1rem',
+                    borderRadius: '2px',
+                    backgroundColor: '#dddddd',
+                    color: 'black',
+                    border: 'none',
+                    padding: '2px',
+                  }}
+                >
+                  Activate
+                </button>
+              ),
+              tooltip: 'Click to assign item to distributor',
+              onClick: (data) => console.log(data),
+              // isFreeAction: true,
+            },
+            {
+              icon: () => (
+                <button
+                  style={{
+                    fontSize: '1rem',
+                    borderRadius: '2px',
+                    backgroundColor: '#dddddd',
+                    color: 'black',
+                    border: 'none',
+                    padding: '2px',
+                  }}
+                >
+                  Deactivate
+                </button>
+              ),
+              tooltip: 'Click to assign batch number',
+              onClick: (data) => console.log(data),
+              // isFreeAction: true,
+            },
+          ]}
+        />
+      </Box>
     </Box>
   );
 };
 
-export default serviceCarriers;
+export default ServiceCarriers;

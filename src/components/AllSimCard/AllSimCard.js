@@ -6,7 +6,6 @@ import allsimCardStyles from './AllSimCard.module.css';
 const AllSimCard = () => {
   return (
     <section>
-      <h2 className='my-2'>Add Sim Cards</h2>
       <div className={`${allsimCardStyles.searchContainer}`}>
         <span>Search By:</span>
         {/* form input  */}
