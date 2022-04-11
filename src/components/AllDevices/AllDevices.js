@@ -1,9 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MaterialTable from 'material-table';
 import { Link } from 'react-router-dom';
 import allsimCardStyles from './AllDevices.module.css';
 
 const AllDevices = () => {
+  const [columns, setColumns] = useState([
+    { title: 'ID', field: 'id', sorting: false },
+    {
+      title: 'SSID',
+      field: 'ssid',
+      type: 'numeric',
+      sorting: false,
+      render: (row) => (
+        <Link to={`/dashboard/simCardDetails/${row.ssid}`}>{row.ssid}</Link>
+      ),
+      hidden: true,
+    },
+    { title: 'Device Type', field: 'deviceType', sorting: false },
+    { title: 'IMEI_1', field: 'imei1', type: 'date' },
+    { title: 'IMEI_2', field: 'imei2', type: 'date' },
+    { title: 'Serial Number', field: 'serial_number', sorting: false },
+    {
+      title: 'Status Date',
+      field: 'status_date',
+      type: 'date',
+      hidden: 'true',
+    },
+    { title: 'Vendor', field: 'vendor', sorting: false },
+    { title: 'Batch Number', field: 'batchNumber' },
+    { title: 'DIstributor', field: 'distributor', sorting: false },
+    {
+      title: 'Customer ID',
+      field: 'customer_id',
+      type: 'numeric',
+      sorting: false,
+      hidden: 'true',
+    },
+  ]);
+  const [data, setData] = useState([
+    {
+      id: 1,
+      deviceType: 'laptop',
+      imei1: 45678978954432,
+      imei2: 78678678657657,
+      serial_number: '2022-01-02',
+      vendor: '321com',
+      batchNumber: '5y343',
+      distributor: '321',
+    },
+    {
+      id: 1,
+      deviceType: 'laptop',
+      imei1: 45678978954432,
+      imei2: 78678678657657,
+      serial_number: '2022-01-02',
+      vendor: '321com',
+      batchNumber: '43456',
+      distributor: 'PWD',
+    },
+  ]);
   return (
     <section>
       <div className={`${allsimCardStyles.searchContainer}`}>
@@ -152,179 +207,8 @@ const AllDevices = () => {
       <div className='mui-table my-3'>
         <MaterialTable
           title=''
-          columns={[
-            { title: 'ID', field: 'id', sorting: false },
-            {
-              title: 'SSID',
-              field: 'ssid',
-              type: 'numeric',
-              sorting: false,
-              render: (row) => (
-                <Link to={`/dashboard/simCardDetails/${row.ssid}`}>
-                  {row.ssid}
-                </Link>
-              ),
-            },
-            { title: 'PUK 1', field: 'puk1', sorting: false },
-            { title: 'Created Date', field: 'created_date', type: 'date' },
-            { title: 'Sim Status', field: 'sim_status', sorting: false },
-            { title: 'Status Date', field: 'status_date', type: 'date' },
-            { title: 'Vendor', field: 'vendor', sorting: false },
-            { title: 'Distributor', field: 'distributor', sorting: false },
-            { title: 'Agent', field: 'agent', sorting: false },
-            { title: 'Phone Plan', field: 'phone_plan', sorting: false },
-            {
-              title: 'Customer ID',
-              field: 'customer_id',
-              type: 'numeric',
-              sorting: false,
-            },
-          ]}
-          data={[
-            {
-              id: 1,
-              ssid: 3455675767687,
-              puk1: 456789,
-              created_date: '2022-01-02',
-              sim_status: 'Blank',
-              status_date: '',
-              vendor: '321com',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545456,
-            },
-            {
-              id: 2,
-              ssid: 3455675767697,
-              puk1: 456789,
-              created_date: '2022-01-03',
-              sim_status: '',
-              status_date: '',
-              vendor: 'PWG',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545457,
-            },
-            {
-              id: 3,
-              ssid: 3455675767657,
-              puk1: 456789,
-              created_date: '2022-01-04',
-              sim_status: 'Blank',
-              status_date: '',
-              vendor: '321com',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545458,
-            },
-            {
-              id: 4,
-              ssid: 3455675767487,
-              puk1: 456789,
-              created_date: '2022-01-05',
-              sim_status: '',
-              status_date: '',
-              vendor: 'PWG',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545459,
-            },
-            {
-              id: 5,
-              ssid: 3455675727687,
-              puk1: 456789,
-              created_date: '2022-01-06',
-              sim_status: 'Blank',
-              status_date: '',
-              vendor: '321com',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545451,
-            },
-            {
-              id: 6,
-              ssid: 3455675767687,
-              puk1: 456789,
-              created_date: '2022-01-07',
-              sim_status: '',
-              status_date: '',
-              vendor: 'PWG',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545452,
-            },
-            {
-              id: 7,
-              ssid: 3455675707687,
-              puk1: 456789,
-              created_date: '2022-01-08',
-              sim_status: '',
-              status_date: '',
-              vendor: '321com',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545453,
-            },
-            {
-              id: 8,
-              ssid: 3455645767687,
-              puk1: 456789,
-              created_date: '2022-01-09',
-              sim_status: '',
-              status_date: '',
-              vendor: 'PWG',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545454,
-            },
-            {
-              id: 9,
-              ssid: 3455675967687,
-              puk1: 456789,
-              created_date: '2022-01-10',
-              sim_status: '',
-              status_date: '',
-              vendor: '321com',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545455,
-            },
-            {
-              id: 10,
-              ssid: 3455672767687,
-              puk1: 456789,
-              created_date: '2022-01-11',
-              sim_status: '',
-              status_date: '',
-              vendor: 'PWG',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545416,
-            },
-            {
-              id: 11,
-              ssid: 3455675967687,
-              puk1: 456789,
-              created_date: '2022-01-12',
-              sim_status: '',
-              status_date: '',
-              vendor: '321com',
-              distributor: '',
-              agent: '',
-              phone_plan: '',
-              customer_id: 23234545426,
-            },
-          ]}
+          columns={columns}
+          data={data}
           options={{
             selection: true,
             exportButton: true,
@@ -336,6 +220,39 @@ const AllDevices = () => {
             paginationType: 'stepped',
             paginationPosition: 'top',
             showTextRowsSelected: false,
+            actionsColumnIndex: -1,
+          }}
+          editable={{
+            onRowAdd: (newData) =>
+              new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  setData([...data, newData]);
+
+                  resolve();
+                }, 1000);
+              }),
+            onRowUpdate: (newData, oldData) =>
+              new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  const dataUpdate = [...data];
+                  const index = oldData.tableData.id;
+                  dataUpdate[index] = newData;
+                  setData([...dataUpdate]);
+
+                  resolve();
+                }, 1000);
+              }),
+            onRowDelete: (oldData) =>
+              new Promise((resolve, reject) => {
+                setTimeout(() => {
+                  const dataDelete = [...data];
+                  const index = oldData.tableData.id;
+                  dataDelete.splice(index, 1);
+                  setData([...dataDelete]);
+
+                  resolve();
+                }, 1000);
+              }),
           }}
           actions={[
             {
@@ -373,6 +290,25 @@ const AllDevices = () => {
                 </button>
               ),
               tooltip: 'Click to assign batch number',
+              onClick: (data) => console.log(data),
+              // isFreeAction: true,
+            },
+            {
+              icon: () => (
+                <button
+                  style={{
+                    fontSize: '1rem',
+                    borderRadius: '2px',
+                    backgroundColor: '#dddddd',
+                    color: 'black',
+                    border: 'none',
+                    padding: '2px 8px',
+                  }}
+                >
+                  View
+                </button>
+              ),
+              tooltip: 'Click to active',
               onClick: (data) => console.log(data),
               // isFreeAction: true,
             },
