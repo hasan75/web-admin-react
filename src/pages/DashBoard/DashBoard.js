@@ -43,6 +43,7 @@ import Applications from '../../components/Applications/Applications';
 import DistributionsAgents from '../../components/DistributionsAgents/DistributionsAgents';
 import Reports from '../../components/Reports/Reports';
 import SimCardDetails from '../../components/SimCardDetails/SimCardDetails';
+import SimCardReturn from '../../components/SimCardReturn/SimCardReturn';
 
 const drawerWidth = 220;
 
@@ -319,8 +320,11 @@ const DashBoard = (props) => {
           <Route path={`${path}/phonePlans`}>
             <PhonePlans></PhonePlans>
           </Route>
-          <Route path={`${path}/simCardReturns`}>
+          <Route exact path={`${path}/simCardReturns`}>
             <SimCardReturns></SimCardReturns>
+          </Route>
+          <Route path={`${path}/simCardReturns/:id`}>
+            <SimCardReturn></SimCardReturn>
           </Route>
           <Route path={`${path}/devices`}>
             <Devices></Devices>

@@ -13,7 +13,7 @@ const SimCardReturns = () => {
       render: (row) => (
         <Link
           sx={{ textDecoration: 'none' }}
-          to={`/dashboard/simCardDetails/${row.id}`}
+          to={`/dashboard/simCardReturns/${row.id}`}
         >
           {row.id}
         </Link>
@@ -62,7 +62,6 @@ const SimCardReturns = () => {
     },
     {
       id: '2202',
-      return_date: '20.10.22',
       return_date: '20.10.22',
       return_reason: 'There was no internet connection',
     },
