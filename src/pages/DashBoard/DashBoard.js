@@ -164,7 +164,11 @@ const DashBoard = (props) => {
           </List>
         </Collapse>
         <Divider></Divider>
-        <ListItemButton onClick={handleVendorClick}>
+        <ListItemButton
+          component={Link}
+          to={`${url}/vendors`}
+          onClick={handleVendorClick}
+        >
           <ListItemText primary='Vendors' />
           {vendorOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
