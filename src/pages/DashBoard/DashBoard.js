@@ -188,13 +188,6 @@ const DashBoard = (props) => {
             >
               <ListItemText primary='Device Orders' />
             </ListItemButton>
-            <ListItemButton
-              component={Link}
-              to={`${url}/simCardOperations`}
-              sx={{ pl: 3 }}
-            >
-              <ListItemText primary='Sim Card Operations' />
-            </ListItemButton>
           </List>
         </Collapse>
         <Divider></Divider>
