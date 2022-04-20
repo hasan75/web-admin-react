@@ -251,6 +251,7 @@ const DashBoard = (props) => {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label='mailbox folders'
       >
+        {/* the navigation drawer begins  */}
         <Drawer
           container={container}
           variant='temporary'
@@ -292,6 +293,7 @@ const DashBoard = (props) => {
         }}
       >
         <Toolbar />
+        {/* routes to the components begins  */}
         <Switch>
           <Route exact path={path}>
             <SimCards></SimCards>
