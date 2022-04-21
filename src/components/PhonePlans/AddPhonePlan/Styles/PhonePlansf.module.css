@@ -1,0 +1,20 @@
+.container {
+  background: #f7f7f7;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding-bottom: 20px;
+  -webkit-box-shadow: rgba(87, 88, 88, 0.4) 0px 0px 5px 2px, rgba(202, 216, 233, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+          box-shadow: rgba(87, 88, 88, 0.4) 0px 0px 5px 2px, rgba(202, 216, 233, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-top: 30px;
+}
+
+.container header {
+  font-size: 30px;
+  color: #ffffff;
+  background: #448bd2;
+  padding: 10px 0px;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=PhonePlansf.module.css.map */

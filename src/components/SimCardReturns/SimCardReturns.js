@@ -81,8 +81,10 @@ const SimCardReturns = () => {
           variant: 'outlined',
           color: 'black',
         }}
+        component={Link}
+        to='/dashboard/simCardReturns/addSimCardReturns'
       >
-        Add A New Phone Plan
+        Add A Sim Card Returns
       </Button>
       <Box sx={{ border: '1px solid gray', my: '10px', borderRadius: '2px' }}>
         <MaterialTable

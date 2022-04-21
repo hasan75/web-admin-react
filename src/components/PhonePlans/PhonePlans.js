@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import MaterialTable from 'material-table';
+import { Link } from 'react-router-dom';
 
 const PhonePlans = () => {
   const [columns, setColumns] = useState([
@@ -55,6 +56,8 @@ const PhonePlans = () => {
           variant: 'outlined',
           color: 'black',
         }}
+        component={Link}
+        to='/dashboard/phonePlans/addPhonePlan'
       >
         Add A New Phone Plan
       </Button>
