@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MaterialTable from 'material-table';
-import scStyle from './Styles/Simcard.module.css';
+import scStyle from './Styles/ACPOperations.module.css';
 const simcard = [
   {
     SSID: '8374839748937',
@@ -57,7 +57,7 @@ function Simcard() {
   return (
     <div className={scStyle.container}>
       {/* <p className={scStyle.title}>SIM CARD<p/> */}
-      <p className={scStyle.title}>SIM CARD</p>
+      <p className={scStyle.title}>ACP Operations</p>
       <MaterialTable
         style={{
           boxShadow: 'none',
