@@ -293,7 +293,7 @@ const DashBoard = (props) => {
         }}
       >
         <Toolbar />
-        {/* routes to the components begins  */}
+        {/* routes to the components begins with path */}
         <Switch>
           <Route exact path={path}>
             <SimCards></SimCards>
