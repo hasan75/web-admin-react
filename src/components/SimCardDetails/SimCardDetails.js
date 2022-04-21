@@ -63,7 +63,6 @@ const SimCardDetails = () => {
 
   return (
     <div>
-      <h1 align='center'>Details of {id.ssId}</h1>
       <Container style={{ marginTop: '30px' }} fixed>
         <Box sx={{ width: '100%' }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

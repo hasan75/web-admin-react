@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import MaterialTable from 'material-table';
+import { Link } from 'react-router-dom';
 
 const DeviceOrders = () => {
   const [columns, setColumns] = useState([
@@ -74,8 +75,10 @@ const DeviceOrders = () => {
           variant: 'outlined',
           color: 'black',
         }}
+        component={Link}
+        to='/dashboard/deviceOrders/addDeviceOrder'
       >
-        Add A New Order
+        Add A New Device Order
       </Button>
       <Box sx={{ border: '1px solid gray', my: '10px', borderRadius: '2px' }}>
         <MaterialTable

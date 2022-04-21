@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import MaterialTable from 'material-table';
+import { Link } from 'react-router-dom';
 
 const SimCardsOrders = () => {
   const [columns, setColumns] = useState([
@@ -64,6 +65,8 @@ const SimCardsOrders = () => {
           variant: 'outlined',
           color: 'black',
         }}
+        component={Link}
+        to='/dashboard/simCardsOrders/addSimOrder'
       >
         Add A New Order
       </Button>

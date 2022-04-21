@@ -48,6 +48,8 @@ import AddSimManually from '../../components/AddSimCard/AddSimManually/AddSimMan
 import AddServiceCarrier from '../../components/ServiceCarriers/AddServiceCarrier/AddServiceCarrier';
 import AddPhonePlan from '../../components/PhonePlans/AddPhonePlan/AddPhonePlan';
 import AddSimCardReturns from '../../components/SimCardReturns/AddSimCardReturns/AddSimCardReturns';
+import AddSimOrder from '../../components/SimCardsOrders/AddSimOrder/AddSimOrder';
+import AddDeviceOrder from '../../components/DeviceOrders/AddDeviceOrder/AddDeviceOrder';
 
 const drawerWidth = 220;
 
@@ -77,7 +79,7 @@ const DashBoard = (props) => {
   const drawer = (
     <div>
       <Toolbar>
-        <Box component={Link} to={`${url}/simCards`}>
+        <Box component={Link} to={`${url}`}>
           <Image
             sx={{
               width: 180,
@@ -353,11 +355,17 @@ const DashBoard = (props) => {
           <Route path={`${path}/vendors`}>
             <Vendors></Vendors>
           </Route>
-          <Route path={`${path}/simCardsOrders`}>
+          <Route exact path={`${path}/simCardsOrders`}>
             <SimCardsOrders></SimCardsOrders>
           </Route>
-          <Route path={`${path}/deviceOrders`}>
+          <Route path={`${path}/simCardsOrders/addSimOrder`}>
+            <AddSimOrder></AddSimOrder>
+          </Route>
+          <Route exact path={`${path}/deviceOrders`}>
             <DeviceOrders></DeviceOrders>
+          </Route>
+          <Route path={`${path}/deviceOrders/addDeviceOrder`}>
+            <AddDeviceOrder></AddDeviceOrder>
           </Route>
           <Route path={`${path}/operations`}>
             <Operations></Operations>
