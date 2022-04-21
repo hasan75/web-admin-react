@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import MaterialTable from 'material-table';
+import { Link } from 'react-router-dom';
 
 const ServiceCarriers = () => {
   //for error handling
@@ -62,6 +63,8 @@ const ServiceCarriers = () => {
           variant: 'outlined',
           color: 'black',
         }}
+        component={Link}
+        to='/dashboard/serviceCarriers/addServiceCarrier'
       >
         Add A New Service Carrier
       </Button>

@@ -45,6 +45,7 @@ import Reports from '../../components/Reports/Reports';
 import SimCardDetails from '../../components/SimCardDetails/SimCardDetails';
 import SimCardReturn from '../../components/SimCardReturn/SimCardReturn';
 import AddSimManually from '../../components/AddSimCard/AddSimManually/AddSimManually';
+import AddServiceCarrier from '../../components/ServiceCarriers/AddServiceCarrier/AddServiceCarrier';
 
 const drawerWidth = 220;
 
@@ -317,8 +318,11 @@ const DashBoard = (props) => {
           <Route path={`${path}/simCardOperations`}>
             <SimCardOperations></SimCardOperations>
           </Route>
-          <Route path={`${path}/serviceCarriers`}>
+          <Route exact path={`${path}/serviceCarriers`}>
             <ServiceCarriers></ServiceCarriers>
+          </Route>
+          <Route path={`${path}/serviceCarriers/addServiceCarrier`}>
+            <AddServiceCarrier></AddServiceCarrier>
           </Route>
           <Route path={`${path}/phonePlans`}>
             <PhonePlans></PhonePlans>
