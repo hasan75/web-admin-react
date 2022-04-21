@@ -14,7 +14,13 @@ const AddSimCard = () => {
       alignItems='center'
       justifyContent='center'
     >
-      <Button variant='outlined'>Add A New Sim Card Manually</Button>
+      <Button
+        component={Link}
+        to='/dashboard/addSimCards/addManually'
+        variant='outlined'
+      >
+        Add A New Sim Card Manually
+      </Button>
       <Button variant='outlined'>Import Sim Cards</Button>
     </Stack>
   );

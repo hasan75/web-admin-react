@@ -4,7 +4,7 @@ import Simcard from './Simcard/Simcard';
 // import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Phonecarrier from './Phonecarrier/Phonecarrier';
-import ACP from './ACP Operations/ACP Operations';
+import ACPOperations from './ACPOperations/ACPOperations';
 import Note from './Note/Note';
 import ServiceCarrier from './SerivceCarrier/ServiceCarrier';
 import Simop from './Simop/Simop';
@@ -78,7 +78,7 @@ const SimCardDetails = () => {
           <TabPanel value={value} index={0}>
             <Simcard />
             <Phonecarrier />
-            <ACP />
+            <ACPOperations />
             <Note />
             <Simop />
           </TabPanel>

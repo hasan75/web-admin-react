@@ -44,6 +44,7 @@ import DistributionsAgents from '../../components/DistributionsAgents/Distributi
 import Reports from '../../components/Reports/Reports';
 import SimCardDetails from '../../components/SimCardDetails/SimCardDetails';
 import SimCardReturn from '../../components/SimCardReturn/SimCardReturn';
+import AddSimManually from '../../components/AddSimCard/AddSimManually/AddSimManually';
 
 const drawerWidth = 220;
 
@@ -307,8 +308,11 @@ const DashBoard = (props) => {
           <Route path={`${path}/simCardDetails/:ssId`}>
             <SimCardDetails></SimCardDetails>
           </Route>
-          <Route path={`${path}/addSimCards`}>
+          <Route exact path={`${path}/addSimCards`}>
             <AddSimCard></AddSimCard>
+          </Route>
+          <Route path={`${path}/addSimCards/addManually`}>
+            <AddSimManually></AddSimManually>
           </Route>
           <Route path={`${path}/simCardOperations`}>
             <SimCardOperations></SimCardOperations>
