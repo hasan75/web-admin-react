@@ -48,13 +48,45 @@ function a11yProps(index) {
     'aria-controls': `simple-tabpanel-${index}`,
   };
 }
+// tab ends
 
 const SimCardDetails = () => {
   const id = useParams();
-  console.log(id);
+
+  // for tab change
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <div>
       <h1 align='center'>Details of {id.ssId}</h1>
+      <Container style={{ marginTop: '30px' }} fixed>
+        <Box sx={{ width: '100%' }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label='basic tabs example'
+            >
+              <Tab label='SIM Card Details' {...a11yProps(0)} />
+              <Tab label='Service carrier operations' {...a11yProps(1)} />
+            </Tabs>
+          </Box>
+          <TabPanel value={value} index={0}>
+            <Simcard />
+            <Phonecarrier />
+            <ACP />
+            <Note />
+            <Simop />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <ServiceCarrier />
+          </TabPanel>
+        </Box>
+      </Container>
     </div>
   );
 };
